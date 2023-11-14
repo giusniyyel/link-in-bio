@@ -13,8 +13,15 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #131315;
   margin-inline: 2rem;
+}
+
+.wrapper {
+  max-width: 600px;
 }
 
 header {
