@@ -5,123 +5,181 @@
  * please visit: https://giusniyyel.dev/software/license
  ******************************************************************************/
 
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap");
 
+:root {
+  /* Colors */
+  --color-dark: #131315;
+  --color-light: #ffffff;
+  --color-text-opacity: rgba(255, 255, 255, 0.8);
+  --color-glass-bg: rgba(255, 255, 255, 0.19);
+  --color-glass-border: rgba(255, 255, 255, 0.16);
+
+  /* Fonts */
+  --font-family-inter: 'Inter', sans-serif;
+  --font-family-ubuntu: 'Ubuntu', sans-serif;
+
+  /* Spacing */
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.75rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.2rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 4rem;
+
+  /* Border Radius */
+  --border-radius-sm: 15px;
+  --border-radius-md: 18px;
+  --border-radius-lg: 25px;
+  --border-radius-full: 50px;
+
+  /* Glassmorphism Effect */
+  --glass-blur: 5.9px;
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --glass-transition: all 0.2s ease-in-out;
+}
+
+/* Global & Reset */
 *,
-body,
-html {
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "ubuntu";
-  list-style: none;
-  color: white;
-  text-decoration: none;
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #131315;
-  margin-inline: 2rem;
+  background-color: var(--color-dark);
+  margin-inline: var(--spacing-xl);
+  font-family: var(--font-family-inter);
+  color: var(--color-light);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, li {
+  list-style: none;
+}
+
+/* Reusable Glassmorphism Class */
+.glass {
+  background: var(--color-glass-bg);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--color-glass-border);
 }
 
 .wrapper {
   max-width: 600px;
 }
 
+/* Header Section */
 header {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   width: 100%;
-  height: 100%;
-  padding-top: 1rem;
+  padding-top: var(--spacing-sm);
 }
 
 .header-img {
   width: 100%;
-  height: 100%;
-  max-width: 500px;
-  object-fit: cover;
+  max-width: 400px;
 }
 
 .header-img img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
-  border-radius: 50px;
+  border-radius: var(--border-radius-full);
 }
 
 .header-details {
-  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  width: 100%;
 }
 
 .header-details h1 {
-  margin-top: 1.5rem;
-  display: flex;
-  font-family: "ubuntu";
+  margin-top: var(--spacing-lg);
+  font-family: var(--font-family-ubuntu);
   font-weight: bold;
-  font-size: 2.5em;
+  font-size: 2.7rem;
 }
 
 .header-details p {
-  display: flex;
+  font-family: var(--font-family-inter);
+  font-size: 1.3rem;
   opacity: 80%;
 }
 
 .header-socials {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-block: var(--spacing-md);
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   width: 100%;
 }
 
 .header-socials ul {
   display: flex;
-  gap: 1rem;
-  flex-flow: wrap;
+  gap: var(--spacing-xs);
 }
 
 .header-socials ul li a {
-  padding: 0.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.19);
-  border-radius: 15px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5.9px);
-  -webkit-backdrop-filter: blur(5.9px);
+  padding: var(--spacing-xs) 0.95rem;
+  background: var(--color-glass-bg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  transition: transform 0.2s ease-in-out;
 }
 
 .header-socials ul li a:hover,
 .header-socials ul li a:focus {
-  transform: scale(1.05, 1.05);
-  transition: all 0.2s ease-in-out;
+  transform: scale(1.05);
 }
 
 .header-socials ul li a img {
+  width: 1.9rem;
+  height: 1.9rem;
   filter: brightness(0) invert(1);
-  opacity: 80%;
+  opacity: 90%;
 }
 
+/* Links Sections */
 .links-sections {
-  margin-top: 2rem;
+  margin-top: var(--spacing-sm);
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 2rem;
+  gap: var(--spacing-xl);
 }
 
 .links-sections section {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--spacing-sm);
+}
+
+.links-sections section h2 {
+  font-family: var(--font-family-inter);
+  font-size: var(--spacing-lg);
+  font-weight: 500;
+  margin-bottom: 0.6rem;
 }
 
 .links-sections ul {
@@ -134,55 +192,47 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  padding: 1.4rem;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.19);
-  border-radius: 25px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5.9px);
-  -webkit-backdrop-filter: blur(5.9px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  font-family: var(--font-family-ubuntu);
+  font-size: 1.2rem;
+  border-radius: var(--border-radius-lg);
+  transition: transform 0.2s ease-in-out, background 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .links-sections ul li a:hover,
-.links-section ul li a:focus {
-  background: white;
-  color: #131315;
+.links-sections ul li a:focus {
+  background: var(--color-light);
+  color: var(--color-dark);
   transform: scale(1.01, 1.02);
-  transition: all 0.2s ease-in-out;
 }
 
+/* Message Block */
 .message-block {
-  padding: 1.5rem;
+  padding: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.19);
-  border-radius: 25px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5.9px);
-  -webkit-backdrop-filter: blur(5.9px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  gap: var(--spacing-sm);
+  border-radius: var(--border-radius-lg);
 }
 
 .message-block p {
   font-size: 1.2rem;
-  font-weight: medium;
+  font-weight: 500;
 }
 
 .message-block form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--spacing-sm);
 }
 
 .input-email {
-  padding: 1rem;
-  border-radius: 15px;
-  border: 0px;
-  font-size: 1rem;
-  color: #131315;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  border: 0;
+  font-size: var(--spacing-sm);
+  color: var(--color-dark);
 }
 
 .message-block form input:focus {
@@ -190,27 +240,44 @@ header {
 }
 
 .btn-send {
-  font-size: 1rem;
-  padding: 1rem;
-  border-radius: 15px;
-  border: 0px;
-  background-color: #131315;
-  color: white;
-  text-decoration: none;
+  font-size: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  border: 0;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .btn-send:hover {
   cursor: pointer;
-  background-color: white;
-  color: #131315;
+  background-color: var(--color-light);
+  color: var(--color-dark);
   transform: scale(1.03, 1.05);
-  transition: all 0.2s ease-in-out;
 }
 
+/* Footer */
 footer {
   width: 100%;
-  margin-block: 4rem;
+  margin-block: var(--spacing-xxl);
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-break {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-socials ul li a {
+    padding: var(--spacing-xs); /* Smaller padding */
+  }
+  .header-socials ul li a img {
+    width: 1.7rem; /* Smaller icon size */
+    height: 1.7rem;
+  }
 }
