@@ -1,4 +1,5 @@
 # 🔗 Link in Bio – Daniel Campos
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cc808988-2a0d-4405-a54a-711fe3769c07/deploy-status)](https://app.netlify.com/projects/roaring-mousse-4989a7/deploys)
  
 Welcome to the source code for [links.giusniyyel.dev](https://links.giusniyyel.dev/), the central hub for all of Daniel Campos' (aka **giusniyyel**) online presence, projects, and community resources.
 
